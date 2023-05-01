@@ -1,3 +1,5 @@
 import streamlit
 
-streamlit.title("Test")
+streamlit.title("Title")
+streamlit.header("Header")
+streamlit.text("Text")
