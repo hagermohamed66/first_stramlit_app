@@ -43,4 +43,4 @@ streamlit.dataframe(my_data_rows)
 
 
 Add_fruit = streamlit.text_input('What fruit you would like to add?','Kiwi')
-streamlit.write('The user entered ', Add_fruit)
+streamlit.write('Thank you for adding ', Add_fruit)
