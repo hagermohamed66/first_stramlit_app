@@ -49,8 +49,14 @@ my_data_rows = my_cur.fetchall()
 streamlit.header("the fruit_load_list:")
 streamlit.dataframe(my_data_rows)
 
-
+def insert_row_to_snowflake(new_fruit):
+   with my_cnx.curser() as my_cur:
+      my_cur.execute("insert into fruit_load_list values ('from streamlit')")
+      return 'Thank you for adding ' + new_fruit
+   
 Add_fruit = streamlit.text_input('What fruit you would like to add?','Kiwi')
-streamlit.write('Thank you for adding ', Add_fruit)
+if streamlit.buttun('Add fruit to the list'):
+   my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+   back_From_function = insert_row_to_snowflake
+   streamlit.write(back_From_function)
 
-my_cur.execute("insert into fruit_load_list values ('from streamlit')")
